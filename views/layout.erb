@@ -4,6 +4,26 @@
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
+
+  <header>
+    <nav>
+      <ul>
+        <li>
+          <% if current_user %>
+            <a href='/sign-out'>Sign Out</a>
+          <% else %>
+            <form method='POST' action='/sign-in'>
+              <input type="text" placeholder="Username" name="username">
+              <input type="password" placeholder="Password" name="password">
+              <input type="submit">
+            </form>
+          <% end %>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
   <%= yield %>
+
 </body>
 </html>

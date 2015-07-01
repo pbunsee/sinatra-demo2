@@ -1,7 +1,19 @@
 <% @groups.each do |g| %>
   <div class='group'>
-    <% g.users.each do |u| %>
-      <div><%= u.name %></div>
-    <% end %>
+    <div class='block-container'>
+      <div class='names'>
+        <% g.users.each do |u| %>
+            <div><%= u.name %></div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class='block-container'>
+      <div class='repo'>
+        <div><%= g.repo || "FOOOOOOOOO" %></div>
+      </div>
+    </div>
+
   </div>
+
 <% end %>
