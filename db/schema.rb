@@ -11,12 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150701155559) do
+ActiveRecord::Schema.define(version: 20150701191902) do
+
+  create_table "appointments", force: :cascade do |t|
+    t.datetime "start_time"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.integer "appointment_id"
+    t.string  "repo"
+  end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "email"
-    t.string "password"
+    t.string  "username"
+    t.string  "email"
+    t.string  "password"
+    t.integer "group_id"
+    t.string  "name"
   end
 
 end

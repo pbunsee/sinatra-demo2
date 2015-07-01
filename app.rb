@@ -17,6 +17,9 @@ post '/sign-up' do
   else
     "Your password & confirmation did not match, try again"
   end
+end
 
-  
+get '/' do
+  @groups = Group.all
+  erb :index
 end

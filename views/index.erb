@@ -1,0 +1,7 @@
+<% @groups.each do |g| %>
+  <div class='group'>
+    <% g.users.each do |u| %>
+      <div><%= u.name %></div>
+    <% end %>
+  </div>
+<% end %>
