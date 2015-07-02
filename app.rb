@@ -6,7 +6,8 @@ require 'rack-flash'
 
 enable :sessions
 
-configure(:development) { set :database, "sqlite3:nottwitter.sqlite3" }
+#configure(:development) { set :database, "sqlite3:nottwitter.sqlite3" }
+ set :database, "sqlite3:nottwitter.sqlite3" 
 use Rack::Flash, sweep: true
 
 
@@ -67,6 +68,16 @@ post '/groups/:id/edit' do
     flash[:notice] = "Please try again, your description was too long"
     redirect '/'
   end
+end
+
+get '/random' do
+  erb :random
+end
+
+get '/random-user' do
+  users = User.all.to_a
+  u = users.shuffle.first
+  u.name
 end
 
 
