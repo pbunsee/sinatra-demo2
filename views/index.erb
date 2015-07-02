@@ -1,19 +1,37 @@
-<% @groups.each do |g| %>
-  <div class='group'>
-    <div class='block-container'>
-      <div class='names'>
-        <% g.users.each do |u| %>
-            <div><%= u.name %></div>
-        <% end %>
+<div id='groups'>
+  <% @groups.each do |g| %>
+    <div class='group'>
+      <div class='block-container'>
+        <div class='names'>
+          <h2>Members</h2>
+          <% g.users.each do |u| %>
+              <div class='name'><%= u.name %></div>
+          <% end %>
+        </div>
       </div>
-    </div>
 
-    <div class='block-container'>
-      <div class='repo'>
-        <div><%= g.repo || "FOOOOOOOOO" %></div>
+      <div class='block-container'>
+        <div class='repo'>
+          <h2>Repo</h2>
+          <% if g.repo %>
+            <a href="<%= g.repo %>">GitHub Repo</a>
+          <% else %>
+              Coming Soon!
+          <% end %>
+        </div>
       </div>
+
+      <div class='block-container'>
+        <div class='repo repo-link'>
+          <h2>Live App</h2>
+          <% if g.link %>
+            <a href="<%= g.link %>">Group's Microblog</a>
+          <% else %>
+              Coming Soon!
+          <% end %>
+        </div>
+      </div>
+
     </div>
-
-  </div>
-
-<% end %>
+  <% end %>
+</div>

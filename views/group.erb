@@ -1,0 +1,6 @@
+<form method="POST" action="/groups/<%= @group.id %>/edit">
+  <label for="repo">Repo</label>
+  <input id="repo" type="text" value="<%= @group.repo %>" name="[group]repo">
+  <textarea name="[group]description"></textarea>
+  <input type="submit">
+</form>
