@@ -6,7 +6,7 @@ require 'rack-flash'
 
 enable :sessions
 
-set :database, "sqlite3:nottwitter.sqlite3"
+configure(:development) { set :database, "sqlite3:nottwitter.sqlite3" }
 use Rack::Flash, sweep: true
 
 
